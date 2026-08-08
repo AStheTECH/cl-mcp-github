@@ -86,7 +86,7 @@ def _github_api_request(
 
     url = f"{GITHUB_API_BASE}{path}"
 
-    with httpx.Client(timeout=httpx.Timeout(connect=CONNECT_TIMEOUT, read=READ_TIMEOUT)) as client:
+    with httpx.Client(timeout=httpx.Timeout(READ_TIMEOUT, connect=CONNECT_TIMEOUT)) as client:
         response = client.request(
             method=method,
             url=url,
